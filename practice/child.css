@@ -1,0 +1,7 @@
+dl > dt {
+    font-weight: 700;
+}
+
+label + input {
+    padding: 5px 10px;
+}
