@@ -1,0 +1,11 @@
+<!-- templates/for_loop_dict.html -->
+
+<h1>Loops in Jinja2</h1>
+<h2>For loop</h2>
+<h3>World Cuisine</h3>
+
+<ul>
+    {% for key, value in cuisines.items() %}
+        <li>Country: {{ key }} => Cuisine: {{ value }}</li>
+    {% endfor %}
+</ul>

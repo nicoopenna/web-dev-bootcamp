@@ -1,60 +1,97 @@
-# app.py
-
 from flask import Flask
 from flask import render_template
 
 app = Flask(__name__)
 
-'''
-@app.route("/first-page")
-def render_first_page():
-    return render_template("first_page.html")
+# define custom data structure with a class
+class GalileanMoons:
+    def __init__(self, first, second, third, fourth):
+        self.first = first
+        self.second = second
+        self.third = third
+        self.fourth = fourth
 
 
-@app.route("/second-page")
-def render_second_page():
-    return render_template("second_page.html")
+@app.route("/data-structures/")
+def render_data_structures():
 
-@app.route("/jinja2")
-def render_jinja2_intro():
-    return render_template(
-        "jinja2-intro.html", name="John Doe", template_name="Jinja2"
-    )
-'''
-# app.py
+    # list operations
+    movies = [
+        "Leon the Professional",
+        "The Usual Suspects",
+        "A Beautiful Mind"
+    ]
 
-from flask import Flask
-from flask import render_template
-
-app = Flask(__name__)
-
-
-@app.route("/expressions/")
-def render_expressions():
-
-    # interpolation
-    color = "brown"
-    animal_one = "fox"
-    animal_two = "dog"
-
-    # addition and subtraction
-    orange_amount = 10
-    apple_amount = 20
-    donate_amount = 15
-
-    # string concatenation
-    first_name = "Captain"
-    last_name = "Marvel"
-
-    kwargs = {
-        "color": color,
-        "animal_one": animal_one,
-        "animal_two": animal_two,
-        "orange_amount": orange_amount,
-        "apple_amount": apple_amount,
-        "donate_amount": donate_amount,
-        "first_name": first_name,
-        "last_name": last_name,
+    # dictionary operations
+    car = {
+        "brand": "Tesla",
+        "model": "Roadstar",
+        "year": "2020",
     }
 
-    return render_template("expressions.html", **kwargs)
+    # custom data structure operations
+    moons = GalileanMoons("Io", "Europa", "Ganymede", "Callisto")
+
+    kwargs = {
+        "movies": movies,
+        "car": car,
+        "moons": moons,
+    }
+
+    return render_template("data_structures.html", **kwargs)
+
+@app.route("/conditionals-basics/")
+def render_conditionals_basics():
+    company = "Microsoft"
+    return render_template("conditionals_basics.html", company=company)
+
+class User:
+    def __init__(self, username):
+        self.username = username
+
+    def __repr__(self):
+        return f"User({self.username})"
+
+
+@app.route("/conditionals-truthy/")
+def render_conditionals_truthy():
+    user = User("Adam")
+    return render_template("conditionals_truthy.html", user=user)
+
+@app.route("/for-loop/")
+def render_loops_for():
+    planets = [
+        "Mercury",
+        "Venus",
+        "Earth",
+        "Mars",
+        "Jupyter",
+        "Saturn",
+        "Uranus",
+        "Neptune",
+    ]
+    return render_template("for_loop.html", planets=planets)
+
+@app.route("/for-loop/dict/")
+def render_loops_for_dict():
+    cuisines = {
+        "Italy": "Neapolitan Pizza",
+        "France": "Baguette",
+        "Spain": "Churros",
+        "Japan": "Sushi",
+        "India": "Dosa",
+    }
+    return render_template("for_loop_dict.html", cuisines=cuisines)
+
+@app.route("/for-loop/conditionals/")
+def render_for_loop_conditionals():
+    user_os = [
+        ("Miller", "Windows"),
+        ("Bob", "MacOS"),
+        ("Zach", "Linux"),
+        ("Annie", "Linux"),
+        ("Farah", "Windows"),
+        ("George", "Windows"),
+    ]
+
+    return render_template("for_loop_conditionals.html", user_os=user_os)

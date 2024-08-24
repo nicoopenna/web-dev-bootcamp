@@ -1,0 +1,16 @@
+<!-- templates/for_loop_conditionals.html -->
+
+<h1>Loops in Jinja2</h1>
+<h2>For loop & conditional statements</h2>
+
+{% for user, os in user_os %}
+    {% if os == "Windows" %}
+        <p>{{ user }} is a <b>Windows</b> user</p>
+
+    {% elif os == "MacOS" %}
+        <p>{{ user }} is a <b>MacOS</b> user</p>
+
+    {% elif os == "Linux" %}
+        <p>{{ user }} is a <b>Linux</b> user</p>
+    {% endif %}
+{% endfor %}

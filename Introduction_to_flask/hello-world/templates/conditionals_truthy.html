@@ -1,0 +1,8 @@
+<!-- templates/conditionals_truthy.html -->
+
+<h1>Conditionals in Jinja2</h1>
+<h2>Checking Truthy / Falsy Variables</h2>
+
+{% if user and user.username %}
+    <p>Hi, I'm {{ user.username }}.</p>
+{% endif %}
