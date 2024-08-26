@@ -1,10 +1,14 @@
 from flask import Flask, render_template, request
 import datetime
+import os
 from pymongo import MongoClient
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def create_app():
     app = Flask(__name__)
-    client = MongoClient("mongodb+srv://nicolaspenna16:BYWsppW6ZYzqxC0T@cluster0.mguv8.mongodb.net/")
+    client = MongoClient(os.getenv("MONGODB_URI"))
     app.db = client.microblog
     entries = []
 
