@@ -53,12 +53,16 @@ body {
     font-size: 1.5rem;
     text-align: center;
 }
+.contact__icon {
+    width: 1em; /* Adjust size as needed */
+    height: 1em; /* Adjust size as needed */
+    margin-right: 0.5rem; /* Space between text and icon */
+}
 
 .contact__details {
     /* 1ch is equivalent to the width of the 0 character at the current
          font size. This allows to create a roughly one letter gap bewteen
          the contact label and the associated contact detail */
-
     margin-left: 1ch;
 }
 
