@@ -54,8 +54,8 @@ body {
     text-align: center;
 }
 .contact__icon {
-    width: 1em; /* Adjust size as needed */
-    height: 1em; /* Adjust size as needed */
+    width: 1.5em; /* Adjust size as needed */
+    height: 1.5em; /* Adjust size as needed */
     margin-right: 0.5rem; /* Space between text and icon */
 }
 
