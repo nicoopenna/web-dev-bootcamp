@@ -21,14 +21,24 @@
             <a href="{{ url_for('about') }}" class="nav__link {{ 'nav__link--active' if request.path == url_for('about') }}">
                 About
             </a>
-            <a href="{{ url_for('contact') }}" class="nav__link {{ 'nav__link--active' if request.path == url_for('contact') }}">
-                Contact
-            </a>
         </nav>
     </header>
 
     {% block content %}
     {% endblock %}
+    <footer class="footer">
+        <h2>Contact Information</h2>
+        <div class="contact-info">
+            {% for contact in contact_info %}
+            <div class="contact">
+                <a href="{{ contact.url }}" class="contact__link">
+                    <img src="{{ url_for('static',filename=contact.icon) }}" alt="{{ contact.name }} icon" class="contact__icon" />
+                    <span>{{ contact.name }}: {{ contact.details }}</span>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </footer>
 </body>
 
 </html>

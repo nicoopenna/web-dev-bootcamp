@@ -5,38 +5,56 @@
 }
 
 html {
-    font-family: Lato, "sans-serif";
+    font-family: Lato, sans-serif;
 }
 
 body {
-    margin-top: 80px;
+    background-color: #1A1A1A; /* Dark background */
+    color: #FFFFFF; /* Light text */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .header {
+    background-color: #333333; /* Subtle gray for header */
     text-align: center;
+    padding: 1rem 0; /* Add padding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Darker shadow for depth */
+}
+
+.header h1 {
+    color: #FFCC00; /* Accent color for main heading */
+    font-size: 2.5rem; /* Larger font size */
+    margin: 0; /* Remove default margin */
 }
 
 .nav {
-    margin-bottom: 3rem;
+    margin-top: 0.5rem; /* Space between heading and navigation */
     font-size: 1.2rem;
 }
 
 .nav__link {
     text-decoration: none;
-    color: #1c2023;
+    color: #FFCC00; /* Accent color for links */
+    font-weight: bold; /* Make links bold */
+    padding: 0.5rem 1rem; /* Add padding around links */
+    transition: color 0.3s; /* Smooth transition for hover effect */
 }
 
 .nav__link:not(:last-of-type) {
-    margin-right: 2.5rem;
+    margin-right: 2.5rem; /* Space between links */
 }
 
 .nav__link--active,
 .nav__link:hover {
-    font-weight: bold;
+    color: #007ACC; /* Muted blue on hover */
 }
 
 .main {
     margin: 0 auto;
+    flex: 1; /* Allow main content to take available space */
 }
 
 .main--about {
@@ -46,40 +64,130 @@ body {
     text-align: justify;
 }
 
-.contact {
+.contact-info {
     display: flex;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-    text-align: center;
-}
-.contact__icon {
-    width: 1.5em; /* Adjust size as needed */
-    height: 1.5em; /* Adjust size as needed */
-    margin-right: 0.5rem; /* Space between text and icon */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items */
 }
 
-.contact__details {
-    /* 1ch is equivalent to the width of the 0 character at the current
-         font size. This allows to create a roughly one letter gap bewteen
-         the contact label and the associated contact detail */
-    margin-left: 1ch;
+.contact {
+    margin: 0.5rem 0; /* Space between contact items */
 }
 
 .contact__link {
-    color: #000;
-    text-decoration: none;
-
-    /* We can modify the text decoration colour and thickness to
-         create a custom underline, but the text-decoration-thickness
-         property isn't currently supported on Chrome.
-         
-         Using box-shadow to simulate the underline gives us a
-         cross-browser solution. */
-
-    box-shadow: 0 3px 0 0 #4cafda;
+    color: #FFFFFF; /* Default link color */
+    text-decoration: none; /* Remove underline */
+    display: flex; /* Use flex to align icon and text */
+    align-items: center; /* Center align icon and text */
 }
 
 .contact__link:hover {
-    color: #4cafda;
+    color: #FFCC00; /* Change color on hover */
+}
+
+.contact__icon {
+    width: 1.25em; /* Smaller size for icons */
+    height: 1.25em; /* Smaller size for icons */
+    margin-right: 0.5rem; /* Space between icon and text */
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 1.25rem;
+    justify-content: center;
+    justify-items: center;
+    max-width: 21.875rem;
+    margin: 0 auto;
+}
+
+@media (min-width: 48.75em) {
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 45rem;
+    }
+}
+
+@media (min-width: 70em) {
+    .projects {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 68rem;
+    }
+}
+
+.project-card {
+    padding: 0.75rem 0;
+}
+
+.project-card__image {
+    max-width: 100%;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.project-card__meta {
+    padding: 0 1.25rem;
+}
+
+.project-card__name {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    color: #FFFFFF; /* Light text for project names */
+}
+
+.project-card:hover .project-card__image {
+    transform: translateY(-0.5rem);
+}
+
+.project-card:hover .project-card__name {
+    text-decoration: underline;
+}
+
+.categories {
+    display: flex;
+    padding: 0;
+    margin: 0 0 0.75rem;
+    color: #FFCC00; /* Accent color for categories */
+    list-style: none;
+    line-height: 1.45;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: 0.075rem;
+}
+
+.categories__tag:not(:last-of-type)::after {
+    content: "|"; /* Adds a separator */
+    margin: 0 0.25rem;
+}
+
+.u-bare-link {
+    text-decoration: none; /* Utility class to remove link styles */
+}
+
+.footer {
+    background-color: #333333; /* Subtle gray for footer */
+    padding: 0.5rem 0; /* Reduced padding for the footer */
+    text-align: center; /* Center the text */
+    border-top: 1px solid #444; /* Darker border for separation */
+    margin-top: 2rem; /* Space above the footer from the main content */
+}
+
+.footer h2 {
+    margin-bottom: 0.25rem; /* Reduced space below the heading */
+    font-size: 1rem; /* Smaller heading size */
+    color: #FFCC00; /* Accent color for footer headings */
+}
+
+.button {
+    background-color: #007ACC; /* Muted blue button */
+    color: #FFFFFF; /* White text on buttons */
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #FFCC00; /* Accent color on button hover */
 }
