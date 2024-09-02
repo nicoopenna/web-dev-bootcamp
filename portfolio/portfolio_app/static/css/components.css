@@ -1,0 +1,34 @@
+.button {
+    background-color: #007ACC; /* Muted blue button */
+    color: #FFFFFF; /* White text on buttons */
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #008080; /* Teal on button hover */
+}
+
+.nav {
+    margin-top: 0.5rem; /* Space between heading and navigation */
+    font-size: 1.2rem;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: #00BFFF; /* Lighter teal for links */
+    font-weight: bold; /* Make links bold */
+    padding: 0.5rem 1rem; /* Add padding around links */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.nav__link:not(:last-of-type) {
+    margin-right: 2.5rem; /* Space between links */
+}
+
+.nav__link--active,
+.nav__link:hover {
+    color: #007ACC; /* Muted blue on hover */
+}

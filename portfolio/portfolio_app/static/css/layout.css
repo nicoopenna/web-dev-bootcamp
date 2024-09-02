@@ -1,0 +1,36 @@
+.footer {
+    background-color: #333333; /* Subtle gray for footer */
+    padding: 0.5rem 0; /* Reduced padding for the footer */
+    text-align: center; /* Center the text */
+    border-top: 1px solid #444; /* Darker border for separation */
+    margin-top: 2rem; /* Space above the footer from the main content */
+}
+
+.footer h2 {
+    margin-bottom: 0.25rem; /* Reduced space below the heading */
+    font-size: 1rem; /* Smaller heading size */
+    color: #00BFFF; /* Lighter teal for footer headings */
+}
+
+.header {
+    background-color: #333333; /* Subtle gray for header */
+    text-align: center;
+    padding: 1rem 0; /* Add padding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Darker shadow for depth */
+}
+
+.header h1 {
+    color: #00BFFF; /* Lighter teal for main heading */
+    font-size: 2.5rem; /* Larger font size */
+    margin: 0; /* Remove default margin */
+}
+
+
+.main {
+    margin: 0 auto;
+    flex: 1; /* Allow main content to take available space */
+    max-width: 800px; /* Max width for main content */
+    width: 100%; /* Full width */
+    padding: 1rem; /* Internal padding */
+    text-align: center; /* Center text inside the container */
+}
