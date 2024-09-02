@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, abort
 
 app = Flask(__name__)
 projects = [
@@ -47,6 +47,8 @@ contact_info = [
     },
 ]
 
+slug_to_project = {project["slug"]: project for project in projects}
+
 @app.context_processor
 def inject_contact_info():
     return dict(contact_info=contact_info)
@@ -59,3 +61,15 @@ def home():
 @app.route("/about")
 def about():
     return render_template("about.html")
+
+# Two ways to do this:
+# - either store everything about a project in Python and populate a generic `project.html` template.
+# - or as done here, have separate templates for each project
+# At the end of the day, we have to write the project info somewhere, and HTML is a great tool for that.
+# This allows each project to be slightly different as we choose,
+# And with Jinja2 we can always reuse parts of the code as macros (more on that, later!)
+@app.route("/project/<string:slug>")
+def project(slug):
+    if slug not in slug_to_project:
+        abort(404)
+    return render_template(f"project_{slug}.html", project=slug_to_project[slug])

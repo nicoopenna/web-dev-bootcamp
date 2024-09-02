@@ -25,7 +25,7 @@ body {
 }
 
 .header h1 {
-    color: #FFCC00; /* Accent color for main heading */
+    color: #00BFFF; /* Lighter teal for main heading */
     font-size: 2.5rem; /* Larger font size */
     margin: 0; /* Remove default margin */
 }
@@ -37,7 +37,7 @@ body {
 
 .nav__link {
     text-decoration: none;
-    color: #FFCC00; /* Accent color for links */
+    color: #00BFFF; /* Lighter teal for links */
     font-weight: bold; /* Make links bold */
     padding: 0.5rem 1rem; /* Add padding around links */
     transition: color 0.3s; /* Smooth transition for hover effect */
@@ -55,13 +55,75 @@ body {
 .main {
     margin: 0 auto;
     flex: 1; /* Allow main content to take available space */
+    max-width: 800px; /* Ancho máximo para el contenido principal */
+    width: 100%; /* Ocupar todo el ancho permitido */
+    padding: 1rem; /* Espaciado interno */
+    text-align: center; /* Centrar texto dentro del contenedor */
 }
 
-.main--about {
-    max-width: 500px;
-    padding: 0 1rem;
-    line-height: 150%;
-    text-align: justify;
+.hero {
+    max-width: 100%; /* Asegurar que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Mantener la proporción de la imagen */
+    margin-bottom: 1rem; /* Espacio debajo de la imagen */
+}
+
+.project {
+    background-color: #333333; /* Fondo gris sutil */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 1rem; /* Espaciado interno */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para profundidad */
+}
+
+.project__heading {
+    margin: 0;
+    font-size: 2rem; /* Tamaño de fuente para el encabezado del proyecto */
+    color: #00BFFF; /* Lighter teal for project heading */
+}
+
+.project__content {
+    text-align: justify; /* Justificar el texto */
+}
+
+.project__meta-group {
+    margin-top: 1rem; /* Espacio encima del meta grupo */
+}
+
+.project__heading--meta {
+    font-size: 1.5rem; /* Tamaño de fuente para el encabezado de tecnologías */
+    color: #00BFFF; /* Lighter teal for meta heading */
+    margin-bottom: 0.5rem; /* Espacio debajo del encabezado */
+}
+
+.technology-list {
+    list-style: none; /* Eliminar estilo de lista */
+    padding: 0; /* Sin padding */
+    margin: 0; /* Sin margen */
+    color: #FFFFFF; /* Color de texto de la lista */
+}
+
+.technology-list__item {
+    margin: 0.5rem 0; /* Espacio entre elementos de la lista */
+}
+
+.cta {
+    display: inline-flex; /* Cambiar a inline-flex para que solo ocupe el espacio necesario */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    background-color: #007ACC; /* Muted blue para el fondo del CTA */
+    color: #FFFFFF; /* Blanco para el texto en el CTA */
+    text-decoration: none; /* Sin subrayado */
+    padding: 0.5rem 1rem; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-top: 1rem; /* Espacio en la parte superior */
+}
+
+.cta:hover {
+    background-color: #008080; /* Teal al pasar el ratón */
+    text-decoration: underline; /* Subrayar al pasar el ratón */
+}
+
+.cta__icon {
+    margin-right: 0.5rem; /* Espacio entre el icono y el texto */
 }
 
 .contact-info {
@@ -82,7 +144,7 @@ body {
 }
 
 .contact__link:hover {
-    color: #FFCC00; /* Change color on hover */
+    color: #00BFFF; /* Lighter teal on hover */
 }
 
 .contact__icon {
@@ -148,7 +210,7 @@ body {
     display: flex;
     padding: 0;
     margin: 0 0 0.75rem;
-    color: #FFCC00; /* Accent color for categories */
+    color: #00BFFF; /* Lighter teal for categories */
     list-style: none;
     line-height: 1.45;
     text-transform: uppercase;
@@ -176,7 +238,7 @@ body {
 .footer h2 {
     margin-bottom: 0.25rem; /* Reduced space below the heading */
     font-size: 1rem; /* Smaller heading size */
-    color: #FFCC00; /* Accent color for footer headings */
+    color: #00BFFF; /* Lighter teal for footer headings */
 }
 
 .button {
@@ -189,5 +251,45 @@ body {
 }
 
 .button:hover {
-    background-color: #FFCC00; /* Accent color on button hover */
+    background-color: #008080; /* Teal on button hover */
+}
+
+.project__meta-group {
+    margin-bottom: 1rem;
+}
+
+.project__meta-group,
+.cta {
+    padding: 1rem;
+    background-color: #f0f0f0; /* Fondo gris claro */
+    border-radius: 6px;
+    color: #333; /* Color de texto más oscuro para mejor legibilidad */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para resaltar el cuadro */
+    max-width: 600px; /* Ancho máximo */
+    margin: 1rem auto; /* Centrar el contenedor */
+}
+
+.technology-list {
+    list-style: none;
+    padding-left: 0.75rem;
+    margin: 0;
+    line-height: 1.75;
+    color: #333; /* Color de texto más oscuro para mejor legibilidad */
+}
+
+.technology-list__item:before {
+    content: "";
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    background-image: url("/static/img/list-check.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 0.5rem;
+    transform: translateY(2px); /* Centrado vertical */
+}
+
+/* Utility class to remove link styles */
+.u-bare-link {
+    text-decoration: none;
 }
