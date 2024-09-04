@@ -1,12 +1,16 @@
+import uuid
+from dataclasses import asdict
 from flask import (
     Blueprint,
+    current_app,
     redirect,
     render_template,
     session,
+    url_for,
     request,
 )
 from movie_library.forms import MovieForm
-
+from movie_library.models import Movie
 
 pages = Blueprint(
     "pages", __name__, template_folder="templates", static_folder="static"
@@ -15,9 +19,13 @@ pages = Blueprint(
 
 @pages.route("/")
 def index():
+    movie_data = current_app.db.movie.find({})
+    movies = [Movie(**movie) for movie in movie_data]
+
     return render_template(
         "index.html",
         title="Movies Watchlist",
+        movies_data=movies,
     )
 
 
@@ -25,12 +33,17 @@ def index():
 def add_movie():
     form = MovieForm()
 
-    if request.method == "POST":
-        pass
+    if form.validate_on_submit():
+        movie = Movie(
+            _id=uuid.uuid4().hex,
+            title=form.title.data,
+            director=form.director.data,
+            year=form.year.data,
+        )
 
-    return render_template(
-        "new_movie.html", title="Movies Watchlist - Add Movie", form=form
-    )
+        current_app.db.movie.insert_one(asdict(movie))
+
+        return redirect(url_for(".index"))
 
 
 @pages.get("/toggle-theme")
