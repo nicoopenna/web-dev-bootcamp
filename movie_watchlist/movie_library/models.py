@@ -23,4 +23,3 @@ class User:
     email: str
     password: str
     movies: list[str] = field(default_factory=list)
-

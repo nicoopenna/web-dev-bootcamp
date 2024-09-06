@@ -189,5 +189,3 @@ def toggle_theme():
         session["theme"] = "dark"
 
     return redirect(request.args.get("current_page"))
-
-
